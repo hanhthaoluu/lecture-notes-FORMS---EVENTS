@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Constructors and Tables Lecture Code</title>
+  </head>
+  <body>
+    <h1>Dynamically Rendered Table</h1>
+
+    <form id="form">
+      <fieldset>
+        <!--title-->
+        <legend>New Item:</legend>
+
+        <div>
+          <label for="itemName">New Item Name:</label>
+          <input id="item-name-input" type="text" name="itemName" value="" placeholder="Shoes" required>
+        </div>
+
+        <div>
+          <label for="itemPrice">Item Price:</label>
+          <input type="number" min="0.001" step="any" name="itemPrice" value="" required>
+        </div>
+
+        <div>
+          <label for="itemColor">Item Color:</label>
+          <input type="text" name="itemColor" value="">
+        </div>
+
+        <input type="submit" value="Add New Item">
+      </fieldset>
+    </form>
+
+    <table id="generated-table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Color</th>
+        </tr>
+      </thead>
+    </table>
+    <script src="app.js" type="text/javascript"></script>
+  </body>
+</html>

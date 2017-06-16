@@ -4,10 +4,9 @@
 
 //a constructor with 3 parameters
 function Item(name, price, color) {
-  //create a new property called name
+  //create new properties called name, color and price
   this.name = name;
   this.color = color;
-
   this.price = price;
 }
 //prototype lives out of constructor, only created once and shared across all items; each item can call on this prototype if needed; every item can use that function
@@ -44,6 +43,7 @@ Item.prototype.makeRow = function() {
   tableBodyEl.appendChild(newRowEl);
 };
 
+//get the table from the DOM
 var tableEl = document.getElementById('generated-table');
 var tableBodyEl = document.createElement('tbody');
 tableEl.appendChild(tableBodyEl);
@@ -76,11 +76,12 @@ for (var j = 0; j < allItems.length; j++) {
   allItems[j].makeRow();
 }
 
+//get the form from the DOM
 var formEl = document.getElementById('form');
-
+//add event submit, when event submit is fired then the function handleSubmit is called upon
 formEl.addEventListener('submit', handleSubmit);
 
-//
+//specify function handleSubmit
 function handleSubmit(event){
   event.preventDefault();
   //.preventDefault = to not clear out our console, don't reload the page, don't remove everything it just rendered
@@ -88,15 +89,12 @@ function handleSubmit(event){
   //.value = I just want to console.log the "value"
   console.log(event.target.itemName.value);
 
-
-
   // itemName is camel case bc js only recognizes camel case
   // console.log(event.target.itemPrice.value);
   // console.log(event.target.itemColor.value);
 
 //target = formEl bc of line 79
   var itemName = event.target.itemName.value;
-  //
   var itemPrice = event.target.itemPrice.value;
   var itemColor = event.target.itemColor.value;
 
@@ -104,10 +102,13 @@ function handleSubmit(event){
   newItem.makeRow();
 
 //var bodyElement = document.body  to console.log anywhere I click on the page
+//get the table from the DOM
+//add the click event listener and call upon the tableClicked when it's fired
   var tableElement = document.getElementById('generated-table');
-  talbeElement.addEventListener('click', tableClicked);
+  tableElement.addEventListener('click', tableClicked);
 
-//reference to event to passing event into the parameters
+//reference to event to passing event into the parameter of the function tableClicked
+//console.log event.target
   function tableClicked(event){
     console.log(event.target);
   }
